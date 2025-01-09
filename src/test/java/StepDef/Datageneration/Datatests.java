@@ -14,5 +14,6 @@ public class Datatests {
         String lastname = faker.name().lastName();
         String email = firstname.toLowerCase() + "." + lastname.toLowerCase() + "@gmail.com";
         System.out.println(email);
+        System.out.println(email, lastname);
     }
 }
