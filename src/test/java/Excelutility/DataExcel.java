@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 
 public class DataExcel {
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = true, name = "orangedatas")
     public Object[][] getdata()throws Exception{
         File file = new File("Testdatas.xlsx");
         System.out.println(file.exists());

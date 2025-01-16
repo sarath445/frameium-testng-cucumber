@@ -6,6 +6,7 @@ import com.github.javafaker.Faker;
 import com.testng.Utilities.Address.Addressutility;
 import com.testng.Utilities.Currencies.Currencyutility;
 import com.testng.Utilities.Email.Mailutility;
+import com.testng.Utilities.SSN.SSNutility;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,6 +28,7 @@ public class Datagenerationtest extends Datageneration {
     private String url = "https://demo.automationtalks.com/SE-ESY/www.AutomationTalks.com/test/input-form-demo.html";
     private Pageobject page;
     private Currencyutility rupees;
+    //private SSNutility ssn;
 
 
 
@@ -46,6 +48,7 @@ public class Datagenerationtest extends Datageneration {
          Mailutility.genraterandommail();
          //generate random amount for currencies.
          rupees.genrateRandomAmounts();
+         SSNutility.generateRandomSSN();
 
 }
 //throwing an expected exceptions.
@@ -115,6 +118,11 @@ public class Datagenerationtest extends Datageneration {
             System.out.println(international);
         }
 
+    }
+    @Test
+    public void randomSSNnum(){
+        page.enterSSN(SSNutility.generateRandomSSN());
+        System.out.println("Generated SSN are :" + SSNutility.generateRandomSSN());
     }
 
 

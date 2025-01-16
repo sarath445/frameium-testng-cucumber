@@ -7,8 +7,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 @CucumberOptions(features ={"src/test/resources/Features/DataGeneration.feature"},
-        tags ="@b",
-        glue = {"com.framium.stepdef"})
+        tags ="@mails",
+        glue = {"StepDef"})
 
 @RunWith(Cucumber.class)
 public class Testrunner{

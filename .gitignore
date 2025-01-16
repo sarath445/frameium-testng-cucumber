@@ -36,3 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/src/main/java/com/testng/Utilities/
+/src/test/java/runner/
+/testng.xml
+/src/test/java/StepDef/Datageneration/Datagenerationtestcucumber.java

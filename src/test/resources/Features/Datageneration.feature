@@ -1,31 +1,16 @@
 Feature: Data generation
 
-  Scenario Outline: AutoData
+@mails
+Scenario: AutoData
     Given I am on the demoPage
     When I enter a randomMail
-    Then I should display the randomMail
+    Then I should display the random Mail
 
-  Examples:
+  @ssn
+Scenario: AutoSSN1
+   Given I am on the demoPage
+   When I enter a SSN and display
 
-
-
-
-
-
-
-
-
-
-
-
-
-#Feature:autodatagenerations
-#  @b
-#  Scenario : AutoData
-#  Given I am on the demoPage
-#  When I enter a randommail
-#  Then I should display the randommail
-#
 
 
 
@@ -36,10 +21,4 @@ Feature: Data generation
     #Given user need Indianphonenumbers
     #Then user need random names
     #And user need Usnumbers
-    #Then user need randomdatepicking
-    #Then user need randomnumberdigits
-    #Then user need randomaddressnames
-
-
-
-
+    #Then user need randomda

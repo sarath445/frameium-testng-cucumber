@@ -1,8 +1,6 @@
 package PageObject.OrangeHRM;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,9 +22,9 @@ public class Loginhelper {
     }
     //methods.
     public void Loginpage(String userName, String password)throws Exception{
-        Thread.sleep(2000);
-        WebElement Nameuser = driver.findElement(userOrange);
-        Nameuser.sendKeys(userName);
+        Thread.sleep(4000);
+        WebElement nameUser = driver.findElement(userOrange);
+        nameUser.sendKeys(userName);
         WebElement passWord = driver.findElement(Passorange);
         passWord.sendKeys(password);
         //wait for element to be visible and click
@@ -39,11 +37,24 @@ public class Loginhelper {
     public void submitpage(){
         //wait for element to be visible and click
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
-        WebElement submitelement = wait.until(ExpectedConditions.elementToBeClickable(loginOrange));
-        submitelement.click();
+        try{
+            WebElement submitElement = wait.until(ExpectedConditions.elementToBeClickable(loginOrange));
+            submitElement.click();
+        }
+        catch (StaleElementReferenceException e){
+            System.out.println("Element became stale. Retrying...");
+            WebElement submitElement = wait.until(ExpectedConditions.elementToBeClickable(loginOrange));
+            submitElement.click();
+        }
+
     }
     public boolean upgradebtn(){
-        boolean element = driver.findElement(upgrade).isDisplayed();
-        return element;
+        try{
+           return driver.findElement(upgrade).isDisplayed();
+        }
+        catch (NoSuchElementException e){
+            return false;
+        }
+
     }
 }

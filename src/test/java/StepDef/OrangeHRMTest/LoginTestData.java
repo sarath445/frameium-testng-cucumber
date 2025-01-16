@@ -10,7 +10,7 @@ import java.util.List;
 public class LoginTestData {
     //@Test(dataProvider = "logintestdata")
 
-    @DataProvider(name = "logintestdatas3")
+    @DataProvider(name = "logintestdatas3",parallel = true)
     //dataprovider method.
     public Object[][] loginprovider(){
         //using return type of 2 dimensional array.

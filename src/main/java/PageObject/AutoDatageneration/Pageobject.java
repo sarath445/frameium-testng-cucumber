@@ -16,6 +16,7 @@ public class Pageobject {
     private By inputfield = By.xpath("//input[@name='phone']");
     private By demoaddress = By.xpath("//input[@name='address']");
     private By demomail = By.xpath("//input[@name='email']");
+    private By demoSSN = By.xpath("//input[@name='zip']");
 
     public void enterrandomnumber(String randomnumber){
         WebElement phone = driver.findElement(inputfield);
@@ -32,7 +33,12 @@ public class Pageobject {
     public String getrandommail(String email){
         WebElement mail = driver.findElement(demomail);
         mail.sendKeys(email);
-        return mail.getAttribute(email);
+        return mail.getAttribute("value");
+    }
+
+    public void enterSSN(String ssn){
+        WebElement ssnelement = driver.findElement(demoSSN);
+        ssnelement.sendKeys(ssn);
     }
 
 }
