@@ -9,8 +9,10 @@ import java.io.File;
 import java.io.FileInputStream;
 
 public class DataExcel {
-    @DataProvider(parallel = true, name = "orangedatas")
-    public Object[][] getdata()throws Exception{
+
+    @DataProvider(parallel = true)
+    public Object[][] orangedatas()throws Exception{
+
         File file = new File("Testdatas.xlsx");
         System.out.println(file.exists());
         FileInputStream fis = new FileInputStream(file);       //reading data from any file.

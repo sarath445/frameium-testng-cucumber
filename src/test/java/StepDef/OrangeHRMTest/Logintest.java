@@ -1,17 +1,15 @@
 package StepDef.OrangeHRMTest;
 
 import Excelutility.DataExcel;
-import PageObject.Excelutillity.Exceldatas;
 import PageObject.OrangeHRM.Loginhelper;
 import TestngListener.ITestListeners;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.ITestListener;
 import org.testng.annotations.*;
+
+import java.time.Duration;
 
 @Listeners(ITestListeners.class)  //including all events are in this class and listening all methods in this class.
 public class Logintest {
@@ -26,13 +24,14 @@ public class Logintest {
     public void Setup(String url) {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.navigate().to(url);
         driver.manage().window().maximize();
         login = new Loginhelper(driver);
 
     }
 
-//    @Test(description = "verify login", dataProvider = "logintestdatas3", dataProviderClass = LoginTestData.class)
+   //@Test(description = "verify login", dataProvider = "logintestdatas3", dataProviderClass = LoginTestData.class)
 //    public void logindatas(String username, String password) throws Exception {
 //        login.Loginpage(username, password);
 //        login.submitpage();
@@ -50,9 +49,11 @@ public class Logintest {
     }
 
     @AfterMethod
-    public void teardown() {
+    public void cleanup() {
+        driver.manage().deleteAllCookies();
+    }
+    @AfterClass
+    public void teardown(){
         driver.quit();
-
-
     }
 }

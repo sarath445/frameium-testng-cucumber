@@ -35,8 +35,9 @@ public class Loginhelper {
 
     }
     public void submitpage(){
-        //wait for element to be visible and click
+        //wait for element to be visible and click, like as explicit wait condition.
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        //using try-catch to handle exceptions for avoiding program crashes.
         try{
             WebElement submitElement = wait.until(ExpectedConditions.elementToBeClickable(loginOrange));
             submitElement.click();

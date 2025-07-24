@@ -26,7 +26,7 @@ public class Datagenerationtestcucumber {
     public void iAmOnTheDemopage() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));    //implicit wait
         driver.manage().window().maximize();
         driver.navigate().to(url);
         //creating object for the Pageobject class.
